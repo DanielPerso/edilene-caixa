@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão Financeira da Gráfica</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <div class="container">
+        <h1>Gestão Financeira da Gráfica</h1>
+        <form id="form-lancamento">
+
+            <select id="tipo">
+                <option value="entrada">Entrada</option>
+                <option value="saida">Saída</option>
+            </select>
+            <input type="text" id="descricao" placeholder="Descrição">
+            <input type="number" id="valor" placeholder="Valor">
+            <button type="submit">Registrar</button>
+        </form>
+
+        <h2>Lançamentos</h2>
+        <table id="tabela-lancamentos">
+            <thead>
+                <tr>
+                    <th>Tipo</th>
+                    <th>Descrição</th>
+                    <th>Valor</th>
+                    <th>Data</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Aqui vão os lançamentos-->
+            </tbody>
+        </table>
+        <br>
+        <h2>Resumo financeiro</h2>
+        <div id="resumo">
+            <p>Entradas: R$<span id="total-entradas">0.00</span></p>
+            <p>Saídas: R$<span id="total-saidas">0.00</span></p>
+            <p>Lucro: R$<span id="total-lucro">0.00</span></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
