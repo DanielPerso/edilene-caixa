@@ -17,6 +17,11 @@ const LancamentoSchema = new mongoose.Schema({
     data: {
         type: Date,
         default: Date.now
+    },
+    responsavel: {
+        type: String,
+        enum: ['edilene', 'daniel'],
+        required: true
     }
 });
 

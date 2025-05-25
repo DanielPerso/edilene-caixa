@@ -6,6 +6,7 @@ const tabela = document.querySelector('#tabela-lancamentos tbody');
 const totalEntradas = document.getElementById('total-entradas');
 const totalSaidas = document.getElementById('total-saidas');
 const totalLucro = document.getElementById('total-lucro');
+const responsavel = document.getElementById('responsavel');
 
 let entradas = 0;
 let saidas = 0;
@@ -16,6 +17,7 @@ form.addEventListener('submit', async function (event) {
     const tipoLancamento = tipo.value;
     const descricaoLancamento = descricao.value.trim();
     const valorLancamento = parseFloat(valor.value);
+    const responsavelLancamento = responsavel.value;
 
     if (!descricaoLancamento || isNaN(valorLancamento)) {
         alert('Preencha todos os campos corretamente');
@@ -25,8 +27,11 @@ form.addEventListener('submit', async function (event) {
     const lancamento = {
         tipo: tipoLancamento,
         descricao: descricaoLancamento,
-        valor: valorLancamento
+        valor: valorLancamento,
+        responsavel: responsavelLancamento
     };
+
+    console.log('Lancamento enviado:', lancamento);
 
     try {
         const response = await fetch('/api/lancamentos', {
@@ -46,7 +51,8 @@ form.addEventListener('submit', async function (event) {
             lancamentoSalvo.descricao,
             lancamentoSalvo.valor,
             new Date(lancamentoSalvo.data),
-            lancamentoSalvo._id
+            lancamentoSalvo._id,
+            lancamentoSalvo.responsavel
         );
 
         atualizarResumo(lancamentoSalvo.tipo, lancamentoSalvo.valor);
@@ -60,7 +66,7 @@ form.addEventListener('submit', async function (event) {
     form.reset();
 })
 
-function adicionarLinha(tipo, descricao, valor, data, id) {
+function adicionarLinha(tipo, descricao, valor, data, id, responsavel) {
     const linha = document.createElement('tr');
     const dataFormatada = data ? data.toLocaleDateString('pt-BR') : new Date().toLocaleDateString('pt-BR')
 
@@ -69,6 +75,7 @@ function adicionarLinha(tipo, descricao, valor, data, id) {
         <td>${descricao}</td>
         <td>${valor.toFixed(2)}</td>
         <td>${dataFormatada}</td>
+        <td>${responsavel}</td>
         <td><button class='btn-excluir'>Excluir</button></td>
     `;
 
@@ -118,7 +125,8 @@ window.addEventListener('DOMContentLoaded', async () => {
                 lancamento.descricao,
                 lancamento.valor,
                 new Date(lancamento.data),
-                lancamento._id
+                lancamento._id,
+                lancamento.responsavel
             );
             atualizarResumo(lancamento.tipo, lancamento.valor)
         });

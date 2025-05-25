@@ -21,4 +21,18 @@ router.get('/', async (req, res) => {
     }
 });
 
+router.delete('/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+        const deletado = await Lancamento.findByIdAndDelete(id);
+
+        if (!deletado) {
+            return res.stauts(404).json({ erro: 'Lançamento não encontrado' })
+        }
+        res.sendStatus(204);
+    } catch (err) {
+        res.status(500).json({ erro: 'Erro ao excluir lançamento' });
+    }
+})
+
 module.exports = router;

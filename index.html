@@ -17,8 +17,13 @@
                 <option value="entrada">Entrada</option>
                 <option value="saida">Saída</option>
             </select>
+
+            <select id="responsavel">
+                <option value="edilene">Edilene</option>
+                <option value="daniel">Daniel</option>
+            </select>
             <input type="text" id="descricao" placeholder="Descrição">
-            <input type="number" id="valor" placeholder="Valor">
+            <input type="number" step="any" id="valor" placeholder="Valor">
             <button type="submit">Registrar</button>
         </form>
 
@@ -30,6 +35,7 @@
                     <th>Descrição</th>
                     <th>Valor</th>
                     <th>Data</th>
+                    <th>Responsável</th>
                 </tr>
             </thead>
             <tbody>
