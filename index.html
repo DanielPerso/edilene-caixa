@@ -4,30 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gestão Financeira da Gráfica</title>
+    <title>Edilene Personalizados</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="icone.svg" type="image" />
 </head>
 
 <body>
+    <header>
+        <img src="https://i.imgur.com/pk4Qh1V.png" alt="logo" style="height: 60px;" id="logoedilene">
+        <h1>GESTÃO FINANCEIRA</h1>
+    </header>
+    <br>
+
     <div class="container">
-        <h1>Gestão Financeira da Gráfica</h1>
+
+
+
+        <h2>DADOS DO LANÇAMENTO</h2>
         <form id="form-lancamento">
 
             <select id="tipo">
-                <option value="entrada">Entrada</option>
-                <option value="saida">Saída</option>
+                <option value="Entrada">Entrada</option>
+                <option value="Saida">Saída</option>
             </select>
 
             <select id="responsavel">
-                <option value="edilene">Edilene</option>
-                <option value="daniel">Daniel</option>
+                <option value="Edilene">Edilene</option>
+                <option value="Daniel">Daniel</option>
             </select>
             <input type="text" id="descricao" placeholder="Descrição">
             <input type="number" step="any" id="valor" placeholder="Valor">
             <button type="submit">Registrar</button>
         </form>
 
-        <h2>Lançamentos</h2>
+        <br>
+
+        <h2>LANÇAMENTOS</h2>
         <table id="tabela-lancamentos">
             <thead>
                 <tr>
@@ -43,7 +55,7 @@
             </tbody>
         </table>
         <br>
-        <h2>Resumo financeiro</h2>
+        <h2>RESUMO FINANCEIRO</h2>
         <div id="resumo">
             <p>Entradas: R$<span id="total-entradas">0.00</span></p>
             <p>Saídas: R$<span id="total-saidas">0.00</span></p>

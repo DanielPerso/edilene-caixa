@@ -8,6 +8,7 @@ const totalSaidas = document.getElementById('total-saidas');
 const totalLucro = document.getElementById('total-lucro');
 const responsavel = document.getElementById('responsavel');
 
+
 let entradas = 0;
 let saidas = 0;
 
@@ -79,7 +80,7 @@ function adicionarLinha(tipo, descricao, valor, data, id, responsavel) {
         <td><button class='btn-excluir'>Excluir</button></td>
     `;
 
-    linha.style.color = tipo === 'entrada' ? 'green' : 'red';
+    linha.style.color = tipo.toLowerCase() === 'entrada' ? 'green' : 'red';
 
     linha.querySelector('.btn-excluir').addEventListener('click', async () => {
         try {
@@ -101,7 +102,9 @@ function adicionarLinha(tipo, descricao, valor, data, id, responsavel) {
 }
 
 function atualizarResumo(tipo, valor) {
-    if (tipo === 'entrada') {
+    const tipoLower = tipo.toLowerCase();
+
+    if (tipoLower === 'entrada') {
         entradas += valor;
     } else {
         saidas += valor;

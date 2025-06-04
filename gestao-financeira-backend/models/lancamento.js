@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const LancamentoSchema = new mongoose.Schema({
     tipo: {
         type: String,
-        enum: ['entrada', 'saida'],
+        enum: ['Entrada', 'Saida'],
         required: true
     },
     descricao: {
@@ -20,7 +20,7 @@ const LancamentoSchema = new mongoose.Schema({
     },
     responsavel: {
         type: String,
-        enum: ['edilene', 'daniel'],
+        enum: ['Edilene', 'Daniel'],
         required: true
     }
 });
